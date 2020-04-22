@@ -42,6 +42,24 @@ class Problem3:
         plt.show()
         return execution_times
 
+    def d(self):
+        execution_times = []
+        for p43 in range(1, 10):
+            p4 = []
+            for _ in range(p43):
+                p4.append(3)
+            for _ in range(10 - p43):
+                p4.append(6)
+            self.graph[4] = p4
+            execution_times.append((p43 / 10, self.walk()))
+
+        plt.figure()
+        plt.plot([percentage for percentage, _ in execution_times], [time for _, time in execution_times], label='p43')
+        plt.xlabel('p43 percentage chance')
+        plt.ylabel('Execution times')
+        plt.show()
+        return execution_times
+
 
 if __name__ == '__main__':
     simulation = Problem3()
@@ -49,3 +67,4 @@ if __name__ == '__main__':
     print(simulation.time)
     print(simulation.avg_visits)
     print(simulation.c())
+    print(simulation.d())
